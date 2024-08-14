@@ -1,0 +1,7 @@
+{
+  "name": "MaquetadoMorty",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
