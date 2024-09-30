@@ -1,0 +1,36 @@
+
+  <ion-modal [isOpen]="isModalOpen" (ionModalDidDismiss)="modalDismiss()" >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Personaje #{{data.id}}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="close(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding content-container">
+          <img [alt]="data.id" [src]="data.image" />
+          <ion-card-header>
+            <ion-card-title>{{ data.name }}</ion-card-title>
+            <ion-card-subtitle>
+              Especie: {{ data.species }}
+              <br>
+              Origen: {{ data.origin?.name }}
+              <br>
+              Status: {{ data.status }}
+              <br>
+              Ubicación: {{ data.location?.name }}
+            </ion-card-subtitle>
+            <ion-card-subtitle>
+              <ion-button *ngIf="knowIfItemExistInFavorites()" (click)="removeItemToFavorites()">
+                <ion-icon name="close-circle-outline"></ion-icon>
+              </ion-button>
+              <ion-button *ngIf="!knowIfItemExistInFavorites()" (click)="addItemToFavorites()">
+                <ion-icon name="star-outline"></ion-icon>
+              </ion-button>
+            </ion-card-subtitle>
+          </ion-card-header>
+      </ion-content>
+    </ng-template>
+  </ion-modal>

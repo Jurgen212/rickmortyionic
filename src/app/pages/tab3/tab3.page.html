@@ -1,0 +1,29 @@
+<div class="principal-container">
+  <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Personajes Favoritos
+    </ion-title>
+  </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="false" class="ion-padding" *ngIf="characters.length > 0">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Favoritos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    
+  <div class="flex-container" *ngIf="characters.length > 0">
+    <ion-card *ngFor="let item of characters" class="card-item">
+      <app-card [data]="item"></app-card>
+    </ion-card>
+  </div>
+
+</ion-content>
+  <ion-content class="container-warning" *ngIf="characters.length === 0">
+    <br>
+    <ion-title>No hay elementos en favoritos...</ion-title>
+  </ion-content>
+  <app-modal-card></app-modal-card>
+</div>

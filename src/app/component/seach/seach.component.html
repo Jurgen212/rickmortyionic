@@ -1,0 +1,35 @@
+<ion-searchbar [debounce]="1000" (ionInput)="handleInput($event.target.value)"></ion-searchbar>
+
+
+<ion-header collapse="condense" *ngIf="results.length > 0">
+  <ion-toolbar>
+    <ion-title size="large">Personajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-segment *ngIf="results.length <= 0">
+  <p>No hay personajes que coincidan...</p>
+</ion-segment>
+<ion-segment *ngIf="resultsLocations.length <= 0">
+  <p>No hay ubicaciones que coincidan...</p>
+</ion-segment>
+
+<div class="flex-container">
+  <ion-card *ngFor="let item of results" class="card-item">
+    <app-card [data]="item"></app-card>
+  </ion-card>
+</div>
+<app-modal-card></app-modal-card>
+
+
+<ion-header collapse="condense" *ngIf="resultsLocations.length > 0">
+  <ion-toolbar>
+    <ion-title size="large">Lugares</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <div class="flex-container">
+    <ion-card *ngFor="let item of resultsLocations" class="card-item">
+      <app-location-card [item]="item"></app-location-card>
+    </ion-card>
+  </div>

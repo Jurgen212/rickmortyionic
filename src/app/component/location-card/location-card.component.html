@@ -1,0 +1,21 @@
+<div class="principal-card">
+    <ion-card-header>
+      <ion-card-title>{{item.name}}</ion-card-title>
+      <ion-card-subtitle>{{item.dimension}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{item.type}}
+      <br>
+      <button (click)="changeShow()"
+              class="show_personajes">Ver personajes</button>
+        <ion-list *ngIf="show">
+
+          <ion-item *ngFor="let personaje of personajes">
+            <ion-avatar slot="start">
+              <img [src]="personaje.image" />
+            </ion-avatar>
+            <ion-label>{{personaje.name}}</ion-label>
+          </ion-item>
+        </ion-list>
+    </ion-card-content>
+</div>

@@ -1,0 +1,44 @@
+<div class="principal-container">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>
+        Lugares
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="false" class="ion-padding">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Lugares</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+    <div class="flex-container">
+      <ion-card *ngFor="let item of locations" class="card-item">
+        <app-location-card [item]="item"></app-location-card>
+      </ion-card>
+    </div>
+
+  </ion-content>
+
+  
+  <div class="navigation-container">
+    <ion-button *ngIf="this.prev !== null" 
+                size="small" 
+                shape="round"
+                (click)="prevPage()">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+    </ion-button>
+    <p>
+      Página #{{pageNumber}}
+    </p>
+    <ion-button *ngIf="this.next !== null" 
+                size="small" 
+                shape="round"
+                (click)="nextPage()">
+      <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+    </ion-button>
+  </div>
+</div>
+
