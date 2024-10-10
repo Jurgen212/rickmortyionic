@@ -19,6 +19,11 @@ export class LocalstorageService {
     return JSON.parse(localStorage.getItem(key) || '{}');
   }
 
+
+  getItemQR(key: string) {
+    return JSON.parse(localStorage.getItem(key) || '[]');
+  }
+
   removeItem(key: string) {
     localStorage.removeItem(key);
     this.setUpdatingStorage()
@@ -27,7 +32,7 @@ export class LocalstorageService {
   getAllItems() {
     const items = [];
     for (let i = 0; i < localStorage.length; i++) {
-      items.push(JSON.parse( localStorage.getItem(localStorage.key(i) || '{}')!));
+      if( localStorage.key(i) !== 'qrpeople') items.push(JSON.parse( localStorage.getItem(localStorage.key(i) || '{}')!));
     }
     return items;
   } 

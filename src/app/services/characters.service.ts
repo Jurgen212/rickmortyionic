@@ -23,4 +23,8 @@ export class CharactersService {
   getCharactersByName(name:string): Observable<any> {
     return this.Http.get<any>(this.baseUrl + `/?name=${name}`);
   }
+
+  getDataByUrl(url: string): Observable<any>{
+    return this.Http.get<any>(url);
+  }
 }
